@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import * as Font from 'expo-font';
 import Styles from './styles';
 
+
 const Login = () => {
 
     const [login, setLogin] = useState('');
@@ -41,18 +42,20 @@ const Login = () => {
                 </View>
                 <View>
                     <TextInput
-                        style={Styles.input}
+                        style={[Styles.input, {fontSize: 15, fontFamily: 'whitneymedium'}]}
                         placeholder="E-mail ou número de telefone"
                         placeholderTextColor={'#c1c1c1'}
                         value={login}
                         onChangeText={(text) => setLogin(text)}
+                        color= '#fff'
                     />
                     <TextInput
-                        style={Styles.input}
+                        style={[Styles.input, {fontSize: 15, fontFamily: 'whitneymedium'}]}
                         placeholder="Senha"
                         placeholderTextColor={'#c1c1c1'}
                         value={senha}
                         onChangeText={(text) => setSenha(text)}
+                        color= '#fff'
                     />
                 </View>
                 <View style={Styles.recuperarContainer}>

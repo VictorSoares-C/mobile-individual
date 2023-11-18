@@ -9,10 +9,17 @@ const Main = () => {
     const navigation = useNavigation();
     const [fontLoaded, setFontLoaded] = useState(false);
 
+    //método para ir pra página de registro
+    const entrarRegistro = () => {
+        navigation.navigate('Registro');
+    };
+
+    //Método para ir para a página de login
     const entrarLogin = () => {
         navigation.navigate('Login');
-    }
-
+    };
+    
+    //Método para fazer o uso da fonte customizável, É necessário um async para dar tempo de baixar as fontes
     const loadFont = async () => {
         await Font.loadAsync({
             'whitneybold': require('../../../assets/Fonts/whitneybold.otf'),
@@ -52,7 +59,7 @@ const Main = () => {
                 <Text style={Styles.mensagemTexto}>Junte-se a mais de 100 milhões de pessoas que usam o Discord para conversar com seus amigos e comunidades</Text>
             </View>
             <View style={Styles.botaoContainer}>
-                <TouchableOpacity style={Styles.botaoRegistrar} activeOpacity={0.7}>
+                <TouchableOpacity style={Styles.botaoRegistrar} activeOpacity={0.7} onPress={entrarRegistro}>
                     <Text style={Styles.textoBotao}>Registre-se</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={Styles.botaoEntrar} activeOpacity={0.7} onPress={entrarLogin}>

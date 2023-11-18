@@ -52,7 +52,7 @@ const Styles = StyleSheet.create({
         color: '#56aaff',
         textAlign: 'left',
         fontFamily: 'whitneymedium',
-        fontSize: 13,
+        fontSize: 15,
     },
     botaoContainer: {
         alignItems: 'center',

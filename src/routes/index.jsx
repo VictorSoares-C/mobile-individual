@@ -15,8 +15,18 @@ const Routes = () => {
                     options={{
                         headerShown: false,
                     }} />
-                <Stack.Screen
-                    name='Login'
+                <Stack.Screen name='Registro'
+                    component={Registro}
+                    options={{
+                        title: '',
+                        headerStyle: {
+                            backgroundColor: '#23272a'
+                        },
+                        headerTintColor: '#c1c1c1',
+                        headerBackTitleVisible: false,
+                    }}
+                />
+                <Stack.Screen name='Login'
                     component={Login}
                     options={{
                         title: '',
@@ -27,7 +37,6 @@ const Routes = () => {
                         headerBackTitleVisible: false,
                     }}
                 />
-                <Stack.Screen name='Registro' component={Registro} />
             </Stack.Navigator>
         </NavigationContainer>
     )
