@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 const Styles = StyleSheet.create({
     containter: {
         flex: 1,

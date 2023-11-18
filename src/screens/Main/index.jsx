@@ -1,8 +1,34 @@
-import { View, Text, Image, StatusBar, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import * as Font from 'expo-font';
 
 const Main = () => {
+
+    const navigation = useNavigation();
+    const [fontLoaded, setFontLoaded] = useState(false);
+
+    const entrarLogin = () => {
+        navigation.navigate('Login');
+    }
+
+    const loadFont = async () => {
+        await Font.loadAsync({
+            'whitneybold': require('../../../assets/Fonts/whitneybold.otf'),
+            'whitneymedium': require('../../../assets/Fonts/whitneymedium.otf'),
+        });
+        setFontLoaded(true);
+    };
+
+    useEffect(() => {
+        loadFont();
+    }, []);
+
+    if (!fontLoaded) {
+        return null;
+    }
+
     return (
         <View style={Styles.containter}>
             <View style={Styles.logo}>
@@ -29,11 +55,10 @@ const Main = () => {
                 <TouchableOpacity style={Styles.botaoRegistrar} activeOpacity={0.7}>
                     <Text style={Styles.textoBotao}>Registre-se</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={Styles.botaoEntrar} activeOpacity={0.7}>
+                <TouchableOpacity style={Styles.botaoEntrar} activeOpacity={0.7} onPress={entrarLogin}>
                     <Text style={Styles.textoBotao}>Entrar</Text>
                 </TouchableOpacity>
             </View>
-            <StatusBar style="auto" />
         </View>
     )
 }
