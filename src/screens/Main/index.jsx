@@ -34,7 +34,7 @@ const Main = () => {
 
     if (!fontLoaded) {
         return null;
-    }
+    };
 
     return (
         <View style={Styles.containter}>

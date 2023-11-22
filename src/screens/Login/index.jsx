@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import * as Font from 'expo-font';
 import Styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Login = () => {
 
+    const navigation = useNavigation();
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
     const [fontLoaded, setFontLoaded] = useState(false);
@@ -24,7 +26,11 @@ const Login = () => {
 
   if (!fontLoaded) {
     return null;
-  }
+  };
+
+  const entrarChat = () => {
+    navigation.navigate('Chat');
+};
 
     return (
         <View style={Styles.container}>
@@ -48,6 +54,7 @@ const Login = () => {
                         value={login}
                         onChangeText={(text) => setLogin(text)}
                         color= '#fff'
+                        secureTextEntry={true}
                     />
                     <TextInput
                         style={[Styles.input, {fontSize: 15, fontFamily: 'whitneymedium'}]}
@@ -66,7 +73,7 @@ const Login = () => {
                 </View>
                 <View style={Styles.botaoContainer}>
                     <TouchableOpacity style={Styles.botao}>
-                        <Text style={Styles.entrar}>Entrar</Text>
+                        <Text style={Styles.entrar} onPress={entrarChat}>Entrar</Text>
                     </TouchableOpacity>
                 </View>
             </View>
